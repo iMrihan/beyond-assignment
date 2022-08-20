@@ -12,7 +12,7 @@ export default function AdminPanel() {
   const navigate = useNavigate();
   const getProducts = () => {
     axios
-      .get("http://localhost:3005/user/admin-panel", {
+      .get("https://beyond-it.herokuapp.com/user/admin-panel", {
         headers: {
           Authorization: `Bearer ${
             JSON.parse(localStorage.getItem("user")).token
@@ -23,12 +23,10 @@ export default function AdminPanel() {
         setProducts(res.data.result);
       })
       .catch((error) => {
-        alert("You cannot the access this resource this is only for admin");
         navigate("/");
       });
   };
 
-  console.log(products);
   return (
     <div className="products-list">
       <h3>User-List</h3>
@@ -48,7 +46,7 @@ export default function AdminPanel() {
           </ul>
         ))
       ) : (
-        <h1>No Result Found</h1>
+        <h1>...Loading</h1>
       )}
     </div>
   );

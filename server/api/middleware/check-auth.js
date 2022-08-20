@@ -7,8 +7,6 @@ module.exports = async (req, res, next) => {
     const verify = jwt.verify(token, "this is dummy text");
     const user = await User.find({ email: verify.email });
 
-    console.log("verify:", verify);
-
     if (user[0].userType == "admin") {
       next();
     } else {

@@ -29,7 +29,7 @@ const SignUp = () => {
     try {
       e.preventDefault();
 
-      let result = await fetch("http://localhost:3005/user/signup", {
+      let result = await fetch("https://beyond-it.herokuapp.com/user/signup", {
         method: "Post",
         body: JSON.stringify(userData),
         headers: {
@@ -38,7 +38,6 @@ const SignUp = () => {
       });
 
       result = await result.json();
-      // console.log(result.message);
       if (!result.message) {
         setError("");
         localStorage.setItem("user", JSON.stringify(result.new_user));

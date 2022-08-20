@@ -9,8 +9,6 @@ const Nav = () => {
     navigate("/signup");
   };
 
-  console.log(auth);
-
   return (
     <div className="nav">
       <img

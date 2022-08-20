@@ -25,7 +25,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let result = await fetch("http://localhost:3005/user/login", {
+    let result = await fetch("https://beyond-it.herokuapp.com/user/login", {
       method: "Post",
       body: JSON.stringify(loginData),
       headers: {
@@ -34,7 +34,6 @@ export default function Login() {
     });
 
     result = await result.json();
-    // console.log(result);
 
     if (result.token) {
       localStorage.setItem("user", JSON.stringify(result));
